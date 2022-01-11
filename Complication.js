@@ -1,22 +1,29 @@
 // see http://www.salesianer.de/util/kalwoch.html
 
 (function () {
-  exports.draw = function draw (x,y, Radius, Settings) {
-    function ThursdayOfWeek (Timestamp) {
-      let Thursday = new Date();
-        Thursday.setTime(
-          Timestamp.getTime() + (3-((Timestamp.getDay()+6) % 7)) * 86400000
-        );
-      return Thursday;
-    }
+  function ThursdayOfWeek (Timestamp) {
+    let Thursday = new Date();
+      Thursday.setTime(
+        Timestamp.getTime() + (3-((Timestamp.getDay()+6) % 7)) * 86400000
+      );
+    return Thursday;
+  }
 
-    let today = new Date();
-    let thisWeeksThursday  = ThursdayOfWeek(today);
-    let firstWeeksThursday = ThursdayOfWeek(new Date(today.getFullYear(),0,4));
-    let CalendarWeek       = Math.round(
+  function CalendarWeek (Timestamp) {
+    let thisWeeksThursday  = ThursdayOfWeek(Timestamp);
+    let firstWeeksThursday = ThursdayOfWeek(new Date(Timestamp.getFullYear(),0,4));
+    let Result = Math.round(
       1 + (thisWeeksThursday.getTime()-firstWeeksThursday.getTime()) /86400000 /7
     );
 
+    return (
+      Result === 0
+      ? CalendarWeek(new Date(Timestamp.getFullYear(),11,31))
+      : Result
+    );
+  }
+
+  exports.draw = function draw (x,y, Radius, Settings) {
     let halfScreenWidth   = g.getWidth() / 2;
     let largeComplication = (x === halfScreenWidth);
 
@@ -24,7 +31,8 @@
     g.setFont('Vector', 18);
     g.setFontAlign(0,0);
 
-    let Text = (largeComplication ? 'Wk ' : '') + CalendarWeek;
+    let today = new Date();
+    let Text  = (largeComplication ? 'Wk ' : '') + CalendarWeek(today);
     g.drawString(Text, x,y);
   };
 })();
