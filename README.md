@@ -19,7 +19,7 @@ Within a clock implementation, the module may be used as follows:
 let Clockwork = require(...);
 Clockwork.windUp({
   complications: {
-    b:require('https://raw.githubusercontent.com/rozek/banglejs-2-calendar-week-complication/main/Complication.js'),
+    t:require('https://raw.githubusercontent.com/rozek/banglejs-2-calendar-week-complication/main/Complication.js'),
   }
   ...
 });
@@ -38,7 +38,7 @@ Clockwork.windUp({
   face: require('https://raw.githubusercontent.com/rozek/banglejs-2-four-fold-clock-face/main/ClockFace.js'),
   hands:require('https://raw.githubusercontent.com/rozek/banglejs-2-hollow-clock-hands/main/ClockHands.js'),
   complications: {
-    b:require('https://raw.githubusercontent.com/rozek/banglejs-2-calendar-week-complication/main/Complication.js'),
+    t:require('https://raw.githubusercontent.com/rozek/banglejs-2-calendar-week-complication/main/Complication.js'),
   }
 },{
   Foreground:'#000000', Background:'#FFFFFF', Seconds:'#FF0000',
