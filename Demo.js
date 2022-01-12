@@ -7,5 +7,6 @@
       t:require('https://raw.githubusercontent.com/rozek/banglejs-2-calendar-week-complication/main/Complication.js'),
     }
   },{
-    Foreground:'#000000', Background:'#FFFFFF', Seconds:'#FF0000'
+    Foreground:'#000000', Background:'#FFFFFF', Seconds:'#FF0000',
+    withDots:true
   });
