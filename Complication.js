@@ -1,6 +1,6 @@
 // see http://www.salesianer.de/util/kalwoch.html
 
-(function () {
+;(function () {
   function ThursdayOfWeek (Timestamp) {
     let Thursday = new Date();
       Thursday.setTime(
