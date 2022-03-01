@@ -15,7 +15,7 @@ This module displays the current calendar week as a complication for an analog c
 
 Within a clock implementation, the module may be used as follows:
 
-```
+```javascript
 let Clockwork = require(...);
 Clockwork.windUp({
   complications: {
@@ -31,7 +31,7 @@ It supports both small and large complication areas and adjusts its output autom
 
 The following code shows a complete example for a (still simple) analog clock using this complication:
 
-```
+```javascript
 let Clockwork = require('https://raw.githubusercontent.com/rozek/banglejs-2-simple-clockwork/main/Clockwork.js');
 
 Clockwork.windUp({
